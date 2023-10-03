@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="bootstrap.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter&family=Bricolage+Grotesque:opsz@10..48&family=IBM+Plex+Sans:wght@300&family=Overpass:wght@500&family=Quicksand:wght@300&family=Roboto+Slab&family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <center>
+    <h1 style="padding-top:50px">Campus Payment System</h1>
+    </br>
+    </br>
+    </center>
+    <form method="post" action="login.php" class="login">
+    <fieldset style='display:flex;justify-content:center;flex-direction:column;align-items:center;padding:30px; background-color: rgba(255, 255, 255, 0.5);'>
+    <h1 style="padding-bottom:20px">Login Page</h1>
+        <div class="mb-3">
+            <label for="formGroupExampleInput" class="form-label text">User-Id</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Roll No" name="user_id">
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label text">Password</label>
+            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="D-O-B" name="password">
+          </div>
+        
+        <button class="btn btn-secondary text">Login</button>
+      </fieldset>
+      </form>
+    <center>
+    <h6 class="text">If you are an admin <a href="admin.php">Admin Page</a></h6>
+    </center>
+</body>
+</html>

@@ -1,0 +1,39 @@
+.form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mb{
+    padding-top: 30px;
+}
+.form-label{
+    font-weight: 600;
+}
+body{
+    background:url('https://img.freepik.com/free-vector/vibrant-summer-ombre-background-vector_53876-105765.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+    padding-top: 50px;
+
+}  
+h1{
+    font-family: 'Bitter', serif;
+} 
+.text{
+    font-family: 'Overpass', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  }
+.h{
+    display:flex;
+    flex-direction:row;
+}
+.due{
+    margin: 20px 10px 20px 10px;
+    padding-bottom: 30px;
+}
+.due>a{
+    margin: 20px 10px 20px 10px;
+}

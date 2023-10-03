@@ -1,0 +1,118 @@
+Certainly! Here's a step-by-step guide to setting up a scheduled task on a Windows system to send an alert email using a PHP script:
+
+1. **Create the PHP Script:**
+   Create a PHP script that sends the alert email using the PHPMailer library. Make sure the PHPMailer library is properly installed and included in your script. You can use the example script I provided in the previous response.
+
+2. **Configure PHP Script:**
+   Open your PHP script and modify the following details:
+   - SMTP server settings (`Host`, `SMTPAuth`, `Username`, `Password`, `SMTPSecure`, `Port`)
+   - Email sender and recipient addresses
+   - Email subject and content
+   - Target date and time for sending the email
+
+3. **Open Task Scheduler:**
+   To open Task Scheduler, you can use one of the following methods:
+   - Press `Win + R`, type `taskschd.msc`, and press Enter.
+   - Search for "Task Scheduler" in the Start menu and open it.
+
+4. **Create a New Basic Task:**
+   In the Task Scheduler window, click on "Create Basic Task..." on the right-hand side.
+
+5. **Name and Description:**
+   Provide a name and description for the task. Click "Next."
+
+6. **Task Trigger:**
+   Choose "One time" if you want the email to be sent only once at a specific date and time. Click "Next."
+
+7. **Start Date and Time:**
+   Set the date and time when you want the email to be sent. Click "Next."
+
+8. **Action:**
+   Choose "Start a program" and click "Next."
+
+9. **Program/Script:**
+   Browse and select the PHP executable (`php.exe`). The location might vary based on your PHP installation. It's usually located in the PHP installation directory. The "Add arguments (optional)" field should contain the path to your PHP script.
+
+   Example:
+   ```
+   Program/script: C:\path\to\php.exe
+   Add arguments (optional): C:\path\to\your\script.php
+   (mail.php)
+   ```
+
+10. **Finish:**
+    Review your settings and click "Finish" to create the task.
+
+11. **Test the Task:**
+    You can manually run the task to ensure that it sends the alert email. Right-click on the task you created in the Task Scheduler window and select "Run."
+
+12. **Verify the Email:**
+    Check your recipient email address to see if the alert email was sent successfully.
+
+That's it! The above steps should help you schedule a task in Task Scheduler to send an alert email using your PHP script on a Windows system. Make sure to customize the paths and settings in the script and task to match your environment.
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <!-- Include your CSS and any necessary scripts here -->
+</head>
+<body>
+    <?php
+    $amount = isset($_GET['amount']) ? $_GET['amount'] : 0;
+    ?>
+
+    <div style="text-align: center;">
+        <h1>Payment Details</h1>
+        <p>Total Amount to Pay: <?php echo $amount; ?></p>
+        <form action="process_payment.php" method="POST">
+            <input type="hidden" name="amount" value="<?php echo $amount; ?>">
+            <button type="submit" class="buy_now">Make Payment</button>
+        </form>
+    </div>
+
+</body>
+</html>
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+ 
+  $('body').on('click', '.buy_now', function(e){
+    var totalAmount = $(this).attr("data-amount");
+    var product_id =  $(this).attr("data-id");
+    var options = {
+    "key": "rzp_test_wrFQpGgUErjm3z",
+    "amount": (1*100), // 2000 paise = INR 20
+    "name": "Tutsmake",
+    "description": "Payment",
+    "image": "//www.tutsmake.com/wp-content/uploads/2018/12/cropped-favicon-1024-1-180x180.png",
+    "handler": function (response){
+          $.ajax({
+            url: 'payment_process.php',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                razorpay_payment_id: response.razorpay_payment_id , totalAmount : totalAmount ,product_id : product_id,
+            }, 
+            success: function (msg) {
+ 
+               window.location.href = 'success.php';
+            }
+        });
+      
+    },
+ 
+    "theme": {
+        "color": "#528FF0"
+    }
+  };
+  var rzp1 = new Razorpay(options);
+  rzp1.open();
+  e.preventDefault();
+  });
+ 
+</script>
