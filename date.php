@@ -13,7 +13,7 @@ $mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->Username = '2011084@nec.edu.in';
-$mail->Password = 'Harshini003';
+$mail->Password = '*******';
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 $arr=['2011084@nec.edu.in','2011048@nec.edu.in','2011029@nec.edu.in'];
