@@ -47,7 +47,7 @@ $mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->Username = '2011084@nec.edu.in';
-$mail->Password = 'Harshini003';
+$mail->Password = '*********';
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465;
 
